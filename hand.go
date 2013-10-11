@@ -17,7 +17,10 @@ func (h Hand) Score() int {
 
 // TODO something like this???
 // Keep track of what's been accounted for with a uint8?
+//
+// NB when scoring, check that the cards under consideration are face
+// up.  This will allow for showing "running scores" during the game.
 func boxes(h Hand, memo *uint8) { }
+func columnses(h Hand, memo *uint8) { } // future
 func columns(h Hand, memo *uint8) { }
-func columnses(h Hand, memo *uint8) { }
 func pips(h Hand, memo *uint8) { }
