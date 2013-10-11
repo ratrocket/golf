@@ -94,13 +94,13 @@ func TestValid(t *testing.T) {
 
 	for _, c := range Ranks() { // Ranks alone not valid
 		if c.Valid() {
-			t.Errorf("%v is valid, shouldn't be\n", c.Prank)
+			t.Errorf("%v is valid, shouldn't be\n", c.Prank())
 		}
 	}
 
 	for _, c := range Suits() { // Suits alone not valid
 		if c.Valid() {
-			t.Errorf("%v is valid, shouldn't be\n", c.Psuit)
+			t.Errorf("%v is valid, shouldn't be\n", c.Psuit())
 		}
 	}
 	// check output of invalids() (all face up AND down)
