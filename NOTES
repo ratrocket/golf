@@ -1,0 +1,11 @@
+What if the cards were just two character strings?  That is, the
+printed/formatted Card in the 2nd/current/bit-oriented implementation.
+So "Ad", "2d", ... , "Qd", "Kd", ..., "R*".
+
+You can extract the rank from the string.
+You can extract the suit from the string.
+A card's value comes from a case stmt.
+Two cards are equal if their ranks are equal.
+BUT -- face up/down.  *That* is the extra piece of information that makes
+the bit scheme make sense.  Otherwise it has to be a struct with the
+string ("Ad", etc.) and a bool for face up.
