@@ -7,7 +7,11 @@ import(
 
 func TestString(t *testing.T) {
 	h := egHand()
-	fmt.Printf("%v", h)
+	output := fmt.Sprintf("%v", h)
+	should := "As R* 6s Qs\nJh 3c Kd Ad\n"
+	if output != should {
+		t.Errorf("Hand's String() incorrect\n")
+	}
 }
 
 func TestScore(t *testing.T) {

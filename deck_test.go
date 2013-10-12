@@ -15,7 +15,7 @@ var strCards = []string{
 func TestDeck(t *testing.T) {
 	for i, c := range Deck() {
 		if c.String() != strCards[i] {
-			t.Errorf("%v: card unexpected in deck\n")
+			t.Errorf("%v: card unexpected in deck\n", c.String())
 		}
 	}
 }
