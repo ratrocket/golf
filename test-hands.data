@@ -1,0 +1,236 @@
+# anything not specified is "all pips"
+# repeat everything with jokers (eg, joker boxes, joker columnses, etc)
+
+# box0
+3s 3c 4h 5d
+3c 3h 6d 7c
+12 (22 - 10)
+R* R* 4h 5d
+R* R* 6d 7c
+-28 (22 - 50)
+3s 3c 4h R*
+3c 3h R* 7c
+-9 (11 - 10 - 10)
+# box0, col4
+4s 4h 3h Ac
+4d 4c 3c 7h
+-2 (8 - 10)
+R* R* 3h Ac
+R* R* 3c 7h
+-42 (8 - 50)
+4s 4h R* Ac
+4d 4c R* Kh
+-19 (1 - 20)
+4s 4h 3h Ac
+4d 4c 3c R*
+-14 (1 - 15)
+# box0, col6
+5h 5d 2c 6h
+5c 5s 3s 6d
+-5 (5 - 10)
+5h 5d R* 6h
+5c 5s 3s 6d
+-12 (3 - 15)
+5h 5d R* R*
+5c 5s 3s R*
+-22 (3 - 25)
+# box0, col4 (h[0]==h[4]; so would-be deviated columns)
+4s 4h 4h Ac
+4d 4c 4c 2h
+-7 (3 - 10)
+4s 4h 4h Ac
+4d 4c 4c R*
+-14 (1 - 15)
+# box0, col6 (h[0]==h[6])
+5h 5d 2c 5h
+5c 5s 3s 5d
+-5 (5 - 10)
+# box0, col4, col6 (h[4]!=h[6])
+8c 8h As 4h
+8s 8c Ac 4d
+-10
+8c 8h As R*
+8s 8c Ac R*
+-20
+# box0, box4
+Ac As 2d 2h
+Ac Ah 2h 2c
+-20
+Ac As R* R*
+Ac Ah R* R*
+-60
+
+# box2
+8s 7s 7h 7c
+2c 7d 7c 6s
+13 (23 - 10)
+8s 7s 7h R*
+2c 7d 7c 6s
+1 (16 - 15)
+8s R* R* 7c
+2c R* R* 6s
+-27 (23 - 50)
+# box2, colsB
+7c 5d 5c 7s
+7s 5s 5h 7c
+-15
+R* 5d 5c R*
+R* 5s 5h R*
+-30
+7c R* R* 7s
+7s R* R* 7c
+-55
+# box2, col0
+As Ks Kc Qh
+Ac Kh Kd Th
+10 (20 - 10)
+R* Ks Kc Qh
+R* Kh Kd Th
+0
+As Ks Kc R*
+Ac Kh Kd Th
+-5
+# box2, col6
+As Js Jc Qh
+2c Jh Jd Qh
+-7 (3 - 10)
+As Js Jc Qh
+R* Jh Jd Qh
+-14 (1 - 15)
+# box2, col0 (h[2]==h[0])
+Js Js Jc Qh
+Jc Jh Jd Qh
+-10
+Js Js Jc R*
+Jc Jh Jd R*
+-20
+Js Js Jc Qh
+Jc Jh Jd Th
+10 (20 - 10)
+Js Js Jc Qh
+Jc Jh Jd R*
+-5 (10 - 15)
+# box2, col6 (h[2]==h[6])
+2d Qh Qd Qd
+3d Qs Qh Qc
+-5 (5 - 10)
+R* Qh Qd Qd
+3d Qs Qh Qc
+-10 (3 - 13)
+R* Qh Qd Qd
+R* Qs Qh Qc
+-20
+# box2, col0, col6
+7s 9s 9c Qh
+7c 9h 9d Qh
+-10
+R* 9s 9c Qh
+R* 9h 9d Qh
+-20
+7s 9s 9c R*
+7c 9h 9d R*
+-20
+
+# box4
+# START HERE ADDING JOKERS
+2c 3h 4c 4h
+5s Ad 4d 4d
+1 (11 - 10)
+# box4, col0
+2c 3h 5c 5h
+2s Ad 5d 5d
+-6 (4 - 10)
+# box4, col2
+3h 2c 5c 5h
+Ad 2s 5d 5d
+-6 (4 - 10)
+# box4, col0 (h[4]==h[0])
+Ts Ah Tc Td
+Td 2c Th Ts
+-7 (3 - 10)
+# box4, col2 (h[4]==h[2])
+Ah Ts Tc Td
+2c Td Th Ts
+-7 (3 - 10)
+# box4, col0, col2
+Qs 3h Js Js
+Qh 3d Jc Jd
+-10
+
+# colsA
+Qs Th Qh Ad
+Qd 2h Qs As
+7 (12 - 5)
+Qs Th Qh Ad
+Qd 2h Qs 3s
+11 (16 - 5)
+# colsB
+Ts Ah 2c Th
+Tc Ac 2h Td
+-5
+Ts Ah 2c Th
+Tc 3c Ah Td
+2 (7 - 5)
+# colsC
+Qs Ts 3c Th
+Kd Td Ac Tc
+9 (14 - 5)
+Qs Ts 3c Th
+Qd Td Ac Tc
+-1 (4 - 5)
+# colsA, colsC
+Qs Js Qc Jh
+Qd Jd Qc Jc
+-10
+
+# various examples of each of these (joker & non-joker)
+# col0
+Qs Ac Ks 2h
+Qh 3s As 2c
+5
+Qs Ac Ks 3h
+Qh 3s As 2c
+10
+Ks Ac Qs 3h
+Kh Ks Qs 2c
+6
+# col2
+Ts Jc Ac 2h
+7d Js 3s 6d
+29
+As Qc 3c 2h
+Kd Qs 3s Ad
+4
+As Qc 3c 2h
+Ad Qs 3s Ad
+3
+# col4
+As 2c Th 8s
+2h 3d Td 2c
+18
+As 2c Th 8s
+Ah 2d Td 2c
+10
+As 2c Th Ks
+Ah 2d Td 2c
+2
+2s 3c Qh Ks
+Ah 2d Qd 2c
+10
+# col6
+As 2c 3d 4h
+9s 8h 7d 4c
+30
+9s 2c 3d 4h
+9s 8h 7d 4c
+20
+8s 2c 7d 6h
+8s 8h 7d 6c
+10
+8s 2c 7d 6h
+8s 2h 7d 6c
+0
+
+# Various examples of nothing special, with & without joker.
+# Use strCards in deck_test.go & shuffle | sed 8q w/ some formatting to
+# generate random hands that I can manually score for this file.

@@ -152,6 +152,11 @@ func (c Card) Value() int {
 	return 101
 }
 
+func (c Card) Joker() bool {
+	c = c &^ (Faceup | AllSuits) // seriously, make a function
+	return c == Jok
+}
+
 // Ignore faceupness, ignore suit.
 // TODO should we check that they're valid?
 func (c Card) Equal(o Card) bool {

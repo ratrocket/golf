@@ -143,6 +143,20 @@ func TestValue(t *testing.T) {
 	}
 }
 
+func TestJoker(t *testing.T) {
+	jok1 := Jok|Joker|Faceup
+	jok2 := Jok|Joker
+	notJok1 := Ace|Spade|Faceup
+	notJok2 := For|Heart|Faceup
+
+	if !jok1.Joker() || !jok2.Joker() {
+		t.Errorf("A joker is not a joker")
+	}
+	if notJok1.Joker() || notJok2.Joker() {
+		t.Errorf("A non-joker is a joker")
+	}
+}
+
 func TestEqual(t *testing.T) {
 	ace := Ace|Spade|Faceup
 	ac2 := Ace|Heart

@@ -5,6 +5,18 @@ import(
 	"fmt"
 )
 
+// need to load this from a file
+/*
+var hands = []Hand{
+	Hand{
+	},
+	Hand{
+	},
+	Hand{
+	},
+}
+*/
+
 func TestString(t *testing.T) {
 	h := egHand()
 	output := fmt.Sprintf("%v", h)

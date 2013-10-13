@@ -10,6 +10,71 @@ col6                |  colsC c2,c3 c6,c7   -*-*
 ------------------------------------------------------
 NB: This ignores "deviated columns" and other more complicated scoring
 extenstions.  But for some reason includes "columns"...  Hmm.
+------------------------------------------------------
+This scheme will incorrectly score a hand like:
+2 4 2 2
+2 5 2 2
+(also represented as *-**)
+It won't get the box4 (--**) + col0 (*---)
+It will get colsA (*-*-) and col6 (---*).
+
+So... fix that.  Seems we have to check for boxes first.  (Or forget
+about "columns"?)
+------------------------------------------------------
+Box-first approach:
+
+if box0
+  rec score
+  if box4 // This, up until following "done" is "goto consider pos 4"
+    rec score
+  else
+    colOrPip(4)
+    colOrPip(6)
+  done
+if box2
+  rec score
+  if colsB
+    rec score
+  else
+    colOrPip(0)
+    colOrPip(6)
+  done
+if box4 // This is "consider pos 4" (I think)
+  rec score
+  // you already know you don't have box0
+  colOrPip(0)
+  colOrPip(2)
+  done
+
+// now completely done considering box scenarios
+// if you make it here there are NO boxes
+if colsA
+  rec score
+  if colsC
+    rec score
+  else
+    colOrPip(2)
+    colOrPip(6)
+  done
+
+if colsB
+  rec score
+  colOrPip(2) // remember: no boxes possible here
+  colOrPip(4)
+  done
+
+if colsC
+  colOrPip(0)
+  colOrPip(4)
+  done
+
+// here there are no boxes and no columnses
+colOrPip(0)
+colOrPip(2)
+colOrPip(4)
+colOrPip(6)
+done
+------------------------------------------------------
 
 starting possibilities:
   box0, colsA, colsB (<= 1st row exhausts all poss & finishes scoring)
@@ -72,88 +137,3 @@ if box4
 colOrPip(4)
 colOrPip(6)
 done
-
-__END__
-
-if c0 == c1
-  poss: box0
-        colsA
-	colsB
-	col0
-
-  if box0
-    rec score
-    if box4
-      rec score
-      done
-    colOrPip(4)
-    colOrPip(6)
-    done
-  if colsA
-    rec score
-    if colsC
-      rec score
-      done
-    colOrPip(2)
-    colOrPip(6)
-    done
-  if colsB
-    rec score
-    if box2
-      rec score
-      done
-    colOrPip(2)
-    colOrPip(4)
-    done
-
-__END__
-
-if c0 == c1
-  poss: box0
-        colsA
-	colsB
-	col0
-
-  if box0
-    rec score
-    if box4
-      rec score
-      done
-    if col4
-      rec score
-    else
-      pip(c4,c5)
-    if col6
-      rec score
-      done
-    pip(c6,c7)
-    done
-  if colsA
-    rec score
-    if colsC
-      rec score
-      done
-    if col2
-      rec score
-    else
-      pip(c2,c3)
-    if col6
-      rec score
-      done
-    pip(c6,c7)
-    done
-  if colsB
-    rec score
-    if box2
-      rec score
-      done
-    if col2
-      rec score
-    else
-      pip(c2,c3)
-    if col4
-      rec score
-      done
-    pip(c4,c5)
-    done
-
