@@ -1,0 +1,159 @@
+Scoring as states.  |  (key to notation)
+--------------------|---------------------------------
+Hand: c0 c2 c4 c6   |  box0 \
+      c1 c3 c5 c7   |  box2  > box "rooted" at cN
+--------------------|  box4 /       N=0,2,4
+col0 (col starting  |---------------------------------
+col2   at cN        |  colsA c0,c1 c4,c5   *-*-
+col4   N=0,2,4,6)   |  colsB c0,c1 c6,c7   *--*
+col6                |  colsC c2,c3 c6,c7   -*-*
+------------------------------------------------------
+NB: This ignores "deviated columns" and other more complicated scoring
+extenstions.  But for some reason includes "columns"...  Hmm.
+
+starting possibilities:
+  box0, colsA, colsB (<= 1st row exhausts all poss & finishes scoring)
+  OR
+  do colOrPip(0) and move to position 2
+
+from pos 2, possibilities:
+  box2, colsC
+  OR
+  do colOrPip(2) and move to position 4
+
+from pos 4, possibilities:
+  box4
+  OR
+  do colOrPip(4), colOrPip(6) and DONE
+
+if box0
+  rec score
+  if box4     // AKA goto "consider pos 4"
+    rec score //  "
+    done      //  "
+  colOrPip(4) //  "
+  colOrPip(6) //  "
+  done        //  "
+if colsA
+  rec score
+  if colsC
+    rec score
+    done
+  colOrPip(2)
+  colOrPip(6)
+  done
+if colsB
+  rec score
+  if box2     // *IS* this goto "consider pos 2"?
+    rec score //   Or is there a conflict?
+    done      //   Yes there's a conflict.  As written, it would double
+  colOrPip(2) //   score the last column.
+  colOrPip(4)
+  done
+colOrPip(0)
+
+// done with pos 0
+// "move" to pos 2
+if box2
+  rec score
+  colOrPip(6)
+  done
+if colsC
+  rec score
+  colOrPip(4)
+  done
+colOrPip(2)
+
+// done with pos 2
+// "move" to pos 4
+if box4
+  rec score
+  done
+colOrPip(4)
+colOrPip(6)
+done
+
+__END__
+
+if c0 == c1
+  poss: box0
+        colsA
+	colsB
+	col0
+
+  if box0
+    rec score
+    if box4
+      rec score
+      done
+    colOrPip(4)
+    colOrPip(6)
+    done
+  if colsA
+    rec score
+    if colsC
+      rec score
+      done
+    colOrPip(2)
+    colOrPip(6)
+    done
+  if colsB
+    rec score
+    if box2
+      rec score
+      done
+    colOrPip(2)
+    colOrPip(4)
+    done
+
+__END__
+
+if c0 == c1
+  poss: box0
+        colsA
+	colsB
+	col0
+
+  if box0
+    rec score
+    if box4
+      rec score
+      done
+    if col4
+      rec score
+    else
+      pip(c4,c5)
+    if col6
+      rec score
+      done
+    pip(c6,c7)
+    done
+  if colsA
+    rec score
+    if colsC
+      rec score
+      done
+    if col2
+      rec score
+    else
+      pip(c2,c3)
+    if col6
+      rec score
+      done
+    pip(c6,c7)
+    done
+  if colsB
+    rec score
+    if box2
+      rec score
+      done
+    if col2
+      rec score
+    else
+      pip(c2,c3)
+    if col4
+      rec score
+      done
+    pip(c4,c5)
+    done
+
