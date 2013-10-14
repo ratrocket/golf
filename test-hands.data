@@ -231,6 +231,117 @@ As 2c 3d 4h
 8s 2h 7d 6c
 0
 
-# Various examples of nothing special, with & without joker.
-# Use strCards in deck_test.go & shuffle | sed 8q w/ some formatting to
-# generate random hands that I can manually score for this file.
+# Random hands.
+9h 5c 2s Js
+7d 2h 2s 5h
+38
+Qd 3c 5d 3d
+Kd R* 2c Td
+28
+3c Qc 7h 9d
+3h 7h Js 3s
+46
+7s As Ks Jh
+Jd Qs Kc 4d
+42
+Ac 9c Qd As
+2d 9s 3d 5h
+22
+2d Kc Ts Ad
+8c Qh 8c 6h
+45
+6s Kd 9c 4d
+9h Tc 7s 2c
+47
+Kh 7c Ad 6c
+8d 4c 6c Tc
+42
+Td Ks 2h Th
+6h Jc 8s 8h
+54
+Ac 8s 6d 3s
+6d R* 4h Th
+33
+5s 5s Qc Qh
+Kh R* 4c 7c
+36
+4h 8h 5d Ah
+Jh Jc 6s 5c
+49
+4s 3h Jd Ah
+8d 4s Ts 9s
+49
+R* R* Jc 5c
+9h Ts 4c Ks
+28
+Qs 6h 8s Ah
+Th 9s 7c 8c
+59
+2d Qc 4d 8c
+4d 7c 9s Ad
+44
+9d 8d Jh 6s
+6s 2s Ah Td
+52
+Ts 2h Tc 5c
+Kd 7s 6d Jc
+50
+Qc Qh 7s 4c
+6c Td 9s Ks
+56
+5d 4s Jd 5h
+2s 2c Qd Qc
+48
+Ad 3d 6c 2d
+4c Jc Ac 8c
+35
+7h Ad 9c 9d
+6c 7h Th Th
+57
+3s Jd 2c 4d
+8h 8d 5h 9c
+49
+Ks Tc Jc 4d
+Kh 7h 3c 8h
+42
+Kd 7d 9h Jd
+3d Ac 7s 7c
+54
+3d 9s 7c 6s
+As Qh Tc 9d
+55
+2d 2c As Qc
+6d 6c Jh 3c
+40
+Qh Kd Jh 9c
+5h As 8c Td
+53
+Kh Tc Qs As
+Jc R* 9d 8d
+43
+6c Kh 6h 7c
+7h 9c 2d 5h
+42
+5s Kd Ac Ac
+Td 3h Qd 9s
+39
+3d Qs 5c Ac
+Jd Tc Kc 2s
+41
+Jd 6d 5c 4h
+3s Ah 3d Ks
+32
+# shuffle cards | sed 8q | xargs -n 4 | awk '{print $1, $2, $3, $4}' |\
+#   sed 'n;G' >> test-hands.data
+# where 'cards' is
+# Ad
+# 2d
+# 3d
+# 4d
+# 5d
+# 6d
+# 7d
+# 8d
+# 9d
+# Td
+# ...
