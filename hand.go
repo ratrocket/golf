@@ -108,6 +108,7 @@ func (h Hand) colsB() bool {
 func (h Hand) colsC() bool {
 	return h[2].Equal(h[3]) && h[3].Equal(h[6]) && h[6].Equal(h[7])
 }
+
 // i has to be 0, 2, 4, 6
 func (h Hand) colOrPip(i int) int {
 	if h[i].Equal(h[i+1]) {
@@ -132,8 +133,10 @@ func (h Hand) boxScore(i int) int {
 func (h Hand) colsScore(r rune) int {
 	var i int
 	switch r {
-		case 'A', 'B': i = 0
-		case 'C'     : i = 2
+	case 'A', 'B':
+		i = 0
+	case 'C':
+		i = 2
 	}
 	if h[i].Joker() {
 		return -20 // joker columns?
