@@ -130,6 +130,11 @@ func (h Hand) boxScore(i int) int {
 	return -10
 }
 func (h Hand) colsScore(r rune) int {
+	var i int
+	switch r {
+		case 'A', 'B': i = 0
+		case 'C'     : i = 2
+	}
 	if h[i].Joker() {
 		return -20 // joker columns?
 	}

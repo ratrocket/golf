@@ -26,18 +26,24 @@ func TestString(t *testing.T) {
 	}
 }
 
+func TestOneScore(t *testing.T) {
+	if egHand().Score() != 26 {
+		t.Errorf("Score not 26 on egHand()\n")
+	}
+}
+
 func TestScore(t *testing.T) {
 }
 
 func egHand() Hand {
 	return Hand{
 		Ace|Spade|Faceup,
-		Jak|Heart|Faceup,
+		Jak|Heart|Faceup, // 11
 		Jok|Joker|Faceup,
-		Tre|Club|Faceup,
+		Tre|Club|Faceup,  // -2
 		Six|Spade|Faceup,
-		Kng|Diamond|Faceup,
+		Kng|Diamond|Faceup, // 6
 		Qen|Spade|Faceup,
-		Ace|Diamond|Faceup,
+		Ace|Diamond|Faceup, // 11; total 26
 	}
 }
